@@ -16,7 +16,7 @@ function BoulderList({ boulders }: BoulderListProps): JSX.Element{
 
     return (
         <div className="bouldering-list">
-        <div className="column-titles">
+        <div className="bouldering-list-column-titles">
             <p>Location</p>
             <p>Grade</p>
             <p>Setter</p>

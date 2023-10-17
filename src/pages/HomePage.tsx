@@ -1,9 +1,11 @@
-import React from 'react'
-import BoulderList from './BoulderList'
-import ClimbStatusSummary from './ClimbStatusSummary.tsx'
-import AverageGrade from './AverageGrade.tsx'
+import Container from "react-bootstrap/esm/Container";
+import AverageGrade from "../components/AverageGrade";
+import Body from "../components/Body";
+import BoulderList from "../components/BoulderList";
+import ClimbStatusSummary from "../components/ClimbStatusSummary.tsx";
 
-const Dashboard: React.FC = () => {
+
+export default function HomePage() {
 
     const boulders = [
         {
@@ -104,16 +106,15 @@ const Dashboard: React.FC = () => {
         }
     ]
 
-    return (
-        <div>
-            <h1 className="bouldering-dashboard-label">Bouldering Dashboard</h1>
-            <div className="climbing-average-div">
-                <ClimbStatusSummary boulders={boulders} />
-                <AverageGrade boulders={boulders} />
-            </div>
-            <BoulderList boulders={boulders} />
+  return (
+    <Container>
+    <Body sidebar>
+        <div className="climbing-stats-container">
+            <ClimbStatusSummary boulders={boulders}/>
+            <AverageGrade boulders={boulders}/>
         </div>
-    )
+    </Body>
+    <BoulderList boulders={boulders}/>
+    </Container>
+  )
 }
-
-export default Dashboard

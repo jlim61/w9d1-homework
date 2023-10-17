@@ -2,13 +2,24 @@ body {
   background-color: rgb(153, 165, 175);
 }
 
-.bouldering-dashboard-label {
-  /* margin-top: 10px;
-  margin-bottom: 100px;
-  margin-left: 20px; */
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
+.header {
+  border-bottom: black 1px solid;
+  column-gap: 10px;
+  background-color: rgb(153, 165, 175);
+}
+
+.bouldlytics-label {
+  font-size: 40px;
+}
+
+
+.sidebar {
+  width: 120px;
+  margin: 5px;
+  top: 62px;
+  align-self: flex-start;
+  align-items: start;
+  row-gap: 5px;
 }
 
 .bouldering-list {
@@ -20,9 +31,10 @@ body {
   flex-direction: column;
   margin: 20px;
   align-items: center;
+  width: 100%;
 }
 
-.column-titles {
+.bouldering-list-column-titles {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,7 +44,7 @@ body {
   border-bottom: 1px solid black;
 }
 
-.column-titles p {
+.bouldering-list-column-titles p {
   flex: 1;
   text-align: center;
   font-weight: bold;
@@ -51,6 +63,14 @@ body {
   flex: 1;
   text-align: center;
   font-weight: bold;
+}
+
+.climbing-stats-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 1000px;
+  column-gap: 50px;
+  align-self: center;
 }
 
 .climb-status-summary {
