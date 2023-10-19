@@ -1,10 +1,15 @@
+import { useContext } from "react";
 import Body from "../components/Body";
+import { UserContext } from "../contexts/UserProvider";
 
-export default function AllUsersPage({ children }: { children: JSX.Element | JSX.Element[]}) {
+export default function SocialPage({children,}: {children: JSX.Element | JSX.Element[];}) {
+
+  const { user } = useContext(UserContext);
   
   return (
-    <Body sidebar>
-      { children }
-    </Body>
+    <>
+      {user.username && <h3>Welcome {user.username}</h3>}
+      <Body sidebar>{children}</Body>
+    </>
   )
 }

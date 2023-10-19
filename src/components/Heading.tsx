@@ -10,7 +10,7 @@ export default function Heading(): JSX.Element {
       <Navbar sticky='top' className='header'>
         <Container>
         <Navbar.Brand as={NavLink} to='/' className="bouldlytics-label">Bouldlytics</Navbar.Brand></Container>
-        { localStorage.length === 0 ?
+        { !localStorage.getItem('token') ?
         <>
           <Nav.Item>
             <Nav.Link as={NavLink} to='/login'>Login</Nav.Link>

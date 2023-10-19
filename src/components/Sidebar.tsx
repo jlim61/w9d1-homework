@@ -15,7 +15,7 @@ export default function Sidebar() {
         <Nav.Link as={NavLink} to='/users'>All Users</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link as={NavLink} to='/login'>Login</Nav.Link>
+        <Nav.Link as={NavLink} to='/boulders'>Boulders</Nav.Link>
       </Nav.Item>
     </Navbar>
   )

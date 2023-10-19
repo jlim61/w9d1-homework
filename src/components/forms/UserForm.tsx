@@ -4,7 +4,7 @@ import { User } from '../../types'
 
 
 
-export default function RegisterForm() {
+export default function UserForm({ edit } : { edit: boolean}) {
 
   const navigate = useNavigate()
 
@@ -15,7 +15,7 @@ export default function RegisterForm() {
   const lNameField = useRef<HTMLInputElement>(null)
 
   useEffect(()=>{
-    if(localStorage.getItem('token')){
+    if( !edit && localStorage.getItem('token') ){
       navigate('/')
     }
   },[])
@@ -35,13 +35,16 @@ export default function RegisterForm() {
       user.last_name = lNameField.current?.value
     }
     clearFormData()
-    await registerUser(user)
+    await registerUser(user, edit)
   }
 
-  async function registerUser(user: User){
-    const res = await fetch('http://127.0.0.1:5000/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+  async function registerUser(user: User, endpoint: boolean | string){
+    endpoint = endpoint ? 'user' : 'register'
+    const res = await fetch(`http://127.0.0.1:5000/${endpoint}`, {
+      method: edit ? 'PUT' : 'POST',
+      headers: { 'Content-Type': 'application/json',
+                  Authorization: `Bearer ${localStorage.getItem('token')!}`
+                },
       body: JSON.stringify(user)
     })
     const data = await res.json()
